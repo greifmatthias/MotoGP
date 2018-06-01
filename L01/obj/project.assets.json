@@ -13256,11 +13256,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\DRIVE\\COLLEGE\\TM\\P0202\\ASP\\L01\\L01\\L01.csproj",
+      "projectUniqueName": "E:\\DRIVE\\COLLEGE\\TM\\P0202\\ASP\\MotoGP\\L01\\L01.csproj",
       "projectName": "L01",
-      "projectPath": "E:\\DRIVE\\COLLEGE\\TM\\P0202\\ASP\\L01\\L01\\L01.csproj",
+      "projectPath": "E:\\DRIVE\\COLLEGE\\TM\\P0202\\ASP\\MotoGP\\L01\\L01.csproj",
       "packagesPath": "C:\\Users\\Me\\.nuget\\packages\\",
-      "outputPath": "E:\\DRIVE\\COLLEGE\\TM\\P0202\\ASP\\L01\\L01\\obj\\",
+      "outputPath": "E:\\DRIVE\\COLLEGE\\TM\\P0202\\ASP\\MotoGP\\L01\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
