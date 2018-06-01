@@ -1,0 +1,16 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+ViewData["Title"] = "Races on the map";
+}
+
+<img src="~/images/allerlei/map.png" alt="Races"
+     usemap="#mapping">
+
+<map name="mapping">
+    @foreach (Race r in (List<Race>)ViewData["Races"])
+    {
+        <area shape="circle" coords="@r.X, @r.Y, 10" href="@Url.Action("Info", "ShowRace", new { id = @r.RaceId})" alt="@r.Name">
+    }
+</map>

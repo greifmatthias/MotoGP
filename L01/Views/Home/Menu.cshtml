@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+    ViewData["Title"] = "Menu";
+
+    string bannerimg = "/images/allerlei/banner" + ViewData["BannerNr"] + ".jpg";
+}
+
+<img src="@(bannerimg)" />
+
+<p>
+    <a asp-controller="Info" asp-action="ListRaces">
+        <img src="~/images/allerlei/races.png" />
+    </a>
+
+    <a asp-controller="Info" asp-action="ListTeams">
+        <img src="~/images/allerlei/teams.png" />
+    </a>
+</p>
+
+<p>
+    <a asp-controller="Info" asp-action="ListRiders">
+        <img src="~/images/allerlei/riders.png" />
+    </a>
+
+    <a asp-controller="Shop" asp-action="OrderTicket">
+        <img src="~/images/allerlei/tickets.png" />
+    </a>
+</p>
