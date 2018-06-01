@@ -1,0 +1,18 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Race r = ((Race)ViewData["Race"]);
+
+    ViewData["Title"] = "Race - " + r.Name;
+}
+
+<h2>@(r.Date.ToString("dd/MM/yyyy")) - @(r.Country)</h2>
+
+<img src="~/images/races/@(r.RaceId).jpg" />
+
+<p>
+    @(r.Description);
+</p>
+
+<a asp-controller="Info" asp-action="ListRaces">Go back</a>

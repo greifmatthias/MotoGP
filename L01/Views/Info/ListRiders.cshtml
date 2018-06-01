@@ -1,0 +1,35 @@
+﻿@model IEnumerable<L01.Models.Rider>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Riders";
+}
+
+<style>
+    div{
+        float: left;
+    }
+</style>
+
+@{ int counter = 0; }
+@foreach (Rider r in Model)
+{
+    { 
+        counter++;
+        if(counter > 3)
+        {
+            <br/>
+        }
+    }
+          
+    <div>
+        <img src="~/images/rijders/@(r.Number).jpg" />
+        <p>
+            <img src="~/images/vlaggen/@(r.CountryId).png" />
+            @(r.Number)
+        </p>
+        <p>
+            @(r.Firstname) @(r.Lastname)
+        </p>
+    </div>
+}

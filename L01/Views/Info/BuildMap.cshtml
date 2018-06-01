@@ -11,6 +11,6 @@ ViewData["Title"] = "Races on the map";
 <map name="mapping">
     @foreach (Race r in (List<Race>)ViewData["Races"])
     {
-        <area shape="circle" coords="@r.X, @r.Y, 10" href="@Url.Action("Info", "ShowRace", new { id = @r.RaceId})" alt="@r.Name">
+        <area shape="circle" coords="@r.X, @r.Y, 10" href="@Url.Action("ShowRace", "Info", new { id = @r.RaceId})" alt="@r.Name">
     }
 </map>

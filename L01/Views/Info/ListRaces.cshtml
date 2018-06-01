@@ -1,8 +1,46 @@
-﻿@{
+﻿@model IEnumerable<L01.Models.Race>
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     ViewData["Title"] = "Races";
+
+    List<String> months = new List<string>()
+    {
+        "Januari",
+        "Februari",
+        "Maart",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Augustus",
+        "September",
+        "Oktober",
+        "November",
+        "December"
+    };
 }
+
+    @{ DateTime prevdate = new DateTime(); }
+    @foreach(Race r in Model)
+    {
+        if(r.Date.Month != prevdate.Month)
+        {
+            prevdate = r.Date;
+
+            <h2>
+                @(months[prevdate.Month - 1])
+            </h2>
+        }
+
+        <p>
+            @(r.Date.ToString("dd/MM/yyyy"))
+
+            <a href="@Url.Action("ShowRace", "Info", new { id = @r.RaceId})">@r.Name</a>
+        </p>
+    }
+
 
 <a asp-controller="Home" asp-action="Menu">Go back</a>
 <a asp-controller="Info" asp-action="BuildMap">Races on map</a>
