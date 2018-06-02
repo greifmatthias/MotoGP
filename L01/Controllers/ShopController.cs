@@ -6,6 +6,7 @@ using L01.Data;
 using L01.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace L01.Controllers
 {
@@ -32,8 +33,8 @@ namespace L01.Controllers
         {
             ViewData["BannerNr"] = 3;
 
-            Ticket ticket = context.Tickets.Where(t => t.TicketId == id).Single();
-            ticket.Race = context.Races.Where(r => r.RaceId == ticket.RaceId).Single();
+            Ticket ticket = context.Tickets.Include(r => r.Race).Where(t => t.TicketId == id).Single();
+            //ticket.Race = context.Races.Where(r => r.RaceId == ticket.RaceId).Single();
 
             return View(ticket);
         }
