@@ -1,12 +1,90 @@
-﻿@{
+﻿@model L01.Models.Ticket
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     ViewData["Title"] = "Order Ticket";
+
+    var countries = (IEnumerable<SelectListItem>)ViewData["Countries"];
+    var races = (List<Race>)ViewData["Races"];
+
+    int maxnumber = 6;
 }
 
 <p>
     Please fill in following fields
 </p>
+
+<form asp-action="Create">
+    <table>
+        <tr>
+            <td>
+                <label asp-for="Name">@Html.DisplayNameFor(model => model.Name)</label>
+            </td>
+            <td>
+                <input asp-for="Name" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label asp-for="Email">@Html.DisplayNameFor(model => model.Email)</label>
+            </td>
+            <td>
+                <input asp-for="Email" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label asp-for="Address">@Html.DisplayNameFor(model => model.Address)</label>
+            </td>
+            <td>
+                <input asp-for="Address" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label asp-for="CountryId">@Html.DisplayNameFor(model => model.Country)</label>
+            </td>
+            <td>
+                <select asp-for="CountryId" asp-items="countries"></select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label asp-for="RaceId">@Html.DisplayNameFor(model => model.Race)</label>
+            </td>
+            <td>
+                @foreach (Race r in races)
+                {
+                    <input asp-for="RaceId" value="@(r.RaceId)" type="radio" />@(r.Name)
+                    <br />
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label asp-for="Number">@Html.DisplayNameFor(model => model.Number)</label>
+            </td>
+            <td>
+                @for (int i = 1; i <= maxnumber; i++)
+                {
+                    <input asp-for="Number" value="@(i) " type="radio" />@(i)
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="Order" />
+            </td>
+        </tr>
+    </table>
+</form>
 
 <a asp-controller="Home" asp-action="Menu">Go back</a>
 
