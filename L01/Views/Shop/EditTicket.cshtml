@@ -1,0 +1,39 @@
+﻿@model L01.Models.Ticket;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Edit ticket";
+}
+
+<p>
+    Name: @(Model.Name)
+</p>
+
+<p>
+    Email: @(Model.Email)
+</p>
+
+<p>
+    Address: @(Model.Address)
+</p>
+
+<p>
+    Country: @(Model.Country.Name)
+</p>
+
+<p>
+    Race: @(Model.Race.Name)
+</p>
+
+<p>
+    Number: @(Model.Number)
+</p>
+
+<form asp-action="Register">
+    <input type="hidden" value="@(Model.TicketId)" asp-for="TicketId" />
+    <label asp-for="Paid">Paid</label>
+    <input type="checkbox" asp-for="Paid" />
+
+    <input type="submit" value="Register" />
+</form>

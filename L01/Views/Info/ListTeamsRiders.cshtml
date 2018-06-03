@@ -1,0 +1,45 @@
+﻿@model L01.ViewModels.ListTeamsRidersViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Teams and Riders";
+}
+
+<style>
+    div {
+        float: left;
+    }
+</style>
+
+@foreach (Team t in Model.Teams)
+{
+    <div>
+        <a asp-controller="Info" asp-action="ListTeamsRiders" asp-route-id="@(t.TeamId)">
+            <img src="~/images/teams/@(t.Logo)" />
+        </a>
+    </div>
+}
+
+<br/>
+
+@if (Model.TeamId != 0)
+{
+    foreach (Rider r in Model.Team.Riders)
+    {
+        <div>
+            <img src="~/images/rijders/@(r.Number).jpg" />
+            <p>
+                <img src="~/images/vlaggen/@(r.CountryId).png" />
+                @(r.Number)
+            </p>
+            <p>
+                @(r.Firstname) @(r.Lastname)
+            </p>
+        </div>
+    }
+}
+
+<br/>
+
+
+<a asp-controller="Home" asp-action="Menu">Go back</a>

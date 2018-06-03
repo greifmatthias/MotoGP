@@ -1,0 +1,44 @@
+﻿@model IEnumerable<L01.Models.Team>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Teams";
+}
+
+<style>
+    div {
+        float: left;
+    }
+</style>
+
+@{ int counter = 0; }
+@foreach (Team t in Model)
+{
+    {
+        counter++;
+        if (counter > 3)
+        {
+            <br />
+        }
+    }
+
+    <div>
+        <img src="~/images/teams/@(t.Logo)" />
+        <p>
+            @(t.Name)
+        </p>
+        
+        @foreach (Rider r in t.Riders)
+        {
+            <p>
+                @(r.Firstname) @(r.Lastname)
+            </p>
+        }
+    </div>
+}
+
+<a asp-controller="Home" asp-action="Menu">Go back</a>
+
+<a asp-controller="Info" asp-action="ListTeamsRiders">
+    Teams and Riders
+</a>

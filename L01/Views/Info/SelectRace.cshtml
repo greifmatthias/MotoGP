@@ -1,0 +1,36 @@
+﻿@model L01.ViewModels.SelectRaceViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Races";
+}
+
+<form asp-controller="Info" asp-action="SelectRace" method="get">
+    <select asp-for="RaceId" asp-items="Model.Races" onchange="this.form.submit()">
+        <option value="0">Select a race</option>
+    </select>
+</form>
+
+<br/>
+
+<img src="~/images/races/@(Model.race.RaceId).jpg" />
+
+<p>
+    @(Model.race.Name) - @(Model.race.Country)
+</p>
+
+<p>
+    Length: @(Model.race.Length) m
+</p>
+
+<p>
+    Date: @(Model.race.Date.ToString("dd/MM/yyyy"))
+</p>
+
+<p>
+    @(Model.race.Description)
+</p>
+
+
+<a asp-controller="Home" asp-action="Menu">Go back</a>
